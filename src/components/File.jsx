@@ -1,7 +1,8 @@
 import React from 'react'
+import { truncateFilename } from '../features/truncateFilename'
 
 export const File = ({ file }) => {
-    const name = file.name.slice(0, 8) + '...';
+    const name = truncateFilename(file.name);
 
     return (
       <div className="item">

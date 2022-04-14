@@ -14,7 +14,7 @@ const App = () => {
     dispatch(getDirectory());
   }, [dispatch]);
 
-  if (store.fetchStatus === 'fulfilled') {
+  if (mainFolder) {
     console.log(mainFolder);
     return (
       <div>

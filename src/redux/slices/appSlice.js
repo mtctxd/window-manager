@@ -3,6 +3,8 @@ import { getDirectory } from '../asyncThunks/getDirectory';
 
 const initialState = {
   value: 0,
+  currentPath: '',
+  pathHistory: [],
   fetchStatus: 'standby',
   mainFolder: null,
 };
