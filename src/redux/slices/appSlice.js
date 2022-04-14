@@ -4,7 +4,7 @@ import { getDirectory } from '../asyncThunks/getDirectory';
 const initialState = {
   value: 0,
   fetchStatus: 'standby',
-  directories: null,
+  mainFolder: null,
 };
 
 export const appSlice = createSlice({
@@ -24,7 +24,7 @@ export const appSlice = createSlice({
     },
     [getDirectory.fulfilled]: (state, action) => {
       state.fetchStatus = 'fulfilled';
-      state.directories = action.payload;
+      state.mainFolder = action.payload;
     },
     [getDirectory.rejected]: (state) => {
       state.fetchStatus = 'rejected';

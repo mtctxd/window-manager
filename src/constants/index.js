@@ -1,0 +1,1 @@
+export const BASE_API_URL = 'https://fnp5vd20r2.execute-api.us-east-1.amazonaws.com/dev/directories';
