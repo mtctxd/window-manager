@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { getDirectory } from './redux/asyncThunks/getDirectory';
 import { File } from './components/File';
 import { Folder } from './components/Folder';
-import { addPathToHistory } from './redux/slices/appSlice';
 import { Breadcrumbs } from './components/Breadcrumbs';
 
 const App = () => {
@@ -17,14 +16,7 @@ const App = () => {
     dispatch(getDirectory());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (mainFolder) {
-      const {name, id} = mainFolder;
-      dispatch(addPathToHistory({name, id}));
-    }
-  }, [dispatch, mainFolder]);
-
-  if (mainFolder && pathHistory.length > 0) {
+  if (mainFolder) {
     return (
       <div>
         <Breadcrumbs pathHistory={pathHistory}/>

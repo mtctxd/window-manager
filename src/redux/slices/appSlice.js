@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 import { getDirectory } from '../asyncThunks/getDirectory';
 
 const initialState = {
-  currentPath: '',
   pathHistory: [],
   fetchStatus: 'standby',
   mainFolder: null,
@@ -17,6 +16,9 @@ export const appSlice = createSlice({
         ...state.pathHistory,
         action.payload,
       ]
+    },
+    shortenHistoryPathByAmount: (state, action) => {
+      state.pathHistory.splice(action.payload, state.pathHistory.length)
     },
   },
   extraReducers: {
@@ -33,4 +35,4 @@ export const appSlice = createSlice({
   }
 });
 
-export const { addPathToHistory } = appSlice.actions; 
+export const { addPathToHistory, shortenHistoryPathByAmount} = appSlice.actions; 
