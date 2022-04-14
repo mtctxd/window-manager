@@ -1,22 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getDirectory } from '../asyncThunks/getDirectory';
 
-export const appSLice = createSlice({
+const initialState = {
+  value: 0,
+  fetchStatus: 'standby',
+  directories: null,
+};
+
+export const appSlice = createSlice({
   name: 'app',
-  initialState: {
-    value: 0
-  },
+  initialState,
   reducers: {
     incremented: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.value += 1
     },
     decremented: state => {
       state.value -= 1
     }
+  },
+  extraReducers: {
+    [getDirectory.pending]: (state) => {
+      state.fetchStatus = 'pending';
+    },
+    [getDirectory.fulfilled]: (state, action) => {
+      state.fetchStatus = 'fulfilled';
+      state.directories = action.payload;
+    },
+    [getDirectory.rejected]: (state) => {
+      state.fetchStatus = 'rejected';
+    },
   }
 });
 
-export const { incremented, decremented } = appSLice.actions; 
+export const { incremented, decremented } = appSlice.actions; 
