@@ -6,8 +6,8 @@ export const Breadcrumbs = ({ pathHistory }) => {
   const dispatch = useDispatch();
 
   const onBreadcrumbClick = (path, index) => {
-      dispatch(getDirectory(path && `/${path}`));
-      dispatch(shortenHistoryPathByAmount(index));
+    dispatch(getDirectory(path && `/${path}`));
+    dispatch(shortenHistoryPathByAmount(index));
   };
 
   return (
