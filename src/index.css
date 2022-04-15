@@ -37,6 +37,7 @@ body {
 
 .breadcrumbs-item {
   font-size: 24px;
+  cursor: pointer;
 }
 
 .container {
@@ -52,6 +53,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+
+.item__icon {
+    cursor: pointer;
 }
 
 .loader {

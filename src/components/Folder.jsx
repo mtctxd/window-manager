@@ -14,8 +14,9 @@ export const Folder = ({ folder }) => {
   };
 
   return (
-    <div className="item" onClick={onFolderClick}>
+    <div className="item">
       <svg
+        onClick={onFolderClick}
         className="item__icon"
         xmlns="http://www.w3.org/2000/svg"
         height="50px"

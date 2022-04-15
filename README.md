@@ -1,42 +1,29 @@
-## Available Scripts
+# Evojam test task
 
-In the project directory, you can run:
+So in this task i used react because i more familiar with it.
 
-### `npm start`
+## How to start project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `npm install`
+- `npm start`
+- open your browser on [http://localhost:3000/](http://localhost:3000/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## About technologies i used
 
-### `npm test`
+### uuid
+So i was thinking to just generate some uniq id's myself but did find out that it will be just simpler to use library for this to ensure that all keys for components i mapthrough are uniq.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### redux-toolkit
+Used it as state manager bacause it makes project simpler to handle when it settled, also i awnted to use RTKQuery, but more on it below.
 
-### `npm run build`
+### RTKQuery
+As middleware for redux-toolkit for async actions. I did not want to use build-in tools from redux-toolkit because it do nat have page caching. With this tools it cache data that already was fetched and store it, so when i do change page that was opened before it dont call another fetch but use data from cache.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## About some technoligies that i did not used, and why
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### react-query
+So i wanted to use redux, and RTKQuery so i decided to not use this tool,
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### react-router / Next.js???
+I think that is too much for simpe app to change routes for web-page.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
