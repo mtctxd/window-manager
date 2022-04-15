@@ -29,7 +29,9 @@ export const Breadcrumbs = ({ isFetching }) => {
           </span>
         ))}
       </div>
-      {isFetching && <div className="breadcrumbs-item">loading....</div>}
+      {isFetching && (
+        <span className="loader" />
+      )}
     </div>
   );
 };
