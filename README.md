@@ -4,8 +4,8 @@ So in this task i used react because i more familiar with it.
 
 ## How to start project
 
-- `npm install`
-- `npm start`
+- `$npm install`
+- `$npm start`
 - open your browser on [http://localhost:3000/](http://localhost:3000/)
 
 ## About technologies i used
