@@ -1,7 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 import { getDirectory } from '../asyncThunks/getDirectory';
 
 const initialState = {
+  currentPath: '',
   pathHistory: [],
   fetchStatus: 'standby',
   mainFolder: null,
@@ -12,13 +13,13 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     addPathToHistory: (state, action) => {
-      state.pathHistory = [
-        ...state.pathHistory,
-        action.payload,
-      ]
+      state.pathHistory = [...state.pathHistory, action.payload];
     },
     shortenHistoryPathByAmount: (state, action) => {
-      state.pathHistory.splice(action.payload, state.pathHistory.length)
+      state.pathHistory.splice(action.payload, state.pathHistory.length);
+    },
+    changeCurrentPath: (state, action) => {
+      state.currentPath = action.payload;
     },
   },
   extraReducers: {
@@ -32,7 +33,11 @@ export const appSlice = createSlice({
     [getDirectory.rejected]: (state) => {
       state.fetchStatus = 'rejected';
     },
-  }
+  },
 });
 
-export const { addPathToHistory, shortenHistoryPathByAmount} = appSlice.actions; 
+export const {
+  addPathToHistory,
+  shortenHistoryPathByAmount,
+  changeCurrentPath,
+} = appSlice.actions;

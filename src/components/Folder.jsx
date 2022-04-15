@@ -1,18 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { truncateFilename } from '../features/truncateFilename';
-import { useGetDirectoryQuery } from '../redux/asyncThunks/getDirectory';
-import { addPathToHistory } from '../redux/slices/appSlice';
+import { addPathToHistory, changeCurrentPath } from '../redux/slices/appSlice';
 
 export const Folder = ({ folder }) => {
-  const { refetch } = useGetDirectoryQuery();
   const dispatch = useDispatch();
   const { name, id } = folder;
 
   const preparedName = truncateFilename(folder.name);
 
   const onFolderClick = () => {
+    dispatch(changeCurrentPath(id));
     dispatch(addPathToHistory({ name, id }));
-    refetch();
   };
 
   return (

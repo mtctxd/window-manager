@@ -1,13 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { getDirectory } from '../redux/asyncThunks/getDirectory';
-import { shortenHistoryPathByAmount } from '../redux/slices/appSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  changeCurrentPath,
+  shortenHistoryPathByAmount,
+} from '../redux/slices/appSlice';
 import { v4 as uuidv4 } from 'uuid';
 
-export const Breadcrumbs = ({ pathHistory }) => {
+export const Breadcrumbs = () => {
+  const pathHistory = useSelector((store) => store.appSlice.pathHistory);
   const dispatch = useDispatch();
 
   const onBreadcrumbClick = (path, index) => {
-    dispatch(getDirectory(path && `/${path}`));
+    dispatch(changeCurrentPath(path ? `/${path}` : ''));
     dispatch(shortenHistoryPathByAmount(index));
   };
 
@@ -17,7 +20,7 @@ export const Breadcrumbs = ({ pathHistory }) => {
         {'/'}
         <span onClick={() => onBreadcrumbClick()}>root</span>{' '}
       </>
-      {pathHistory.map((historyPoint, index) => (
+      {pathHistory?.map((historyPoint, index) => (
         <span key={uuidv4()}>
           {'/'}
           <span onClick={() => onBreadcrumbClick(historyPoint.id, index + 1)}>
