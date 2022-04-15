@@ -24,8 +24,19 @@ body {
   gap: 32px;
 }
 
+.app-loader-placeholder {
+    font-size: 24px;
+    margin-left: 25px;
+}
+
 .breadcrumbs {
+  display: flex;
+  gap: 24px;
   margin-left: 25px;
+}
+
+.breadcrumbs-item {
+    font-size: 24px;
 }
 
 .container {
