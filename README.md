@@ -1,11 +1,14 @@
-# Evojam test task
+# window-manager
 
-So in this task i used react because i more familiar with it.
+Just simple window manager with react-router, redux and RTKQuery
+
+## [DEMO](https://mtctxd.github.io/window-manager/)
+
 
 ## How to start project
 
-- `$npm install`
-- `$npm start`
+- `$ npm install`
+- `$ npm start`
 - open your browser on [http://localhost:3000/](http://localhost:3000/)
 
 ## About technologies i used
